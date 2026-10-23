@@ -1,0 +1,13 @@
+name: Build "Bundled Page"
+on: [workflow_dispatch]
+jobs:
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: bash ios/build-ipa.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bundled-page-ipa
+          path: ios/*.ipa
