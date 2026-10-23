@@ -13,8 +13,6 @@ workflows:
     triggering:
       events: [push]
     scripts:
-      - name: Install XcodeGen
-        script: brew install xcodegen
       - name: Build IPA
         script: bash ios/build-ipa.sh
     artifacts:

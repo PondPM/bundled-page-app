@@ -4,8 +4,6 @@
 #   TEAM_ID=ABCDE12345 ./build-ipa.sh  -> signed IPA (EXPORT_METHOD=development|ad-hoc|app-store, default development)
 set -euo pipefail
 cd "$(dirname "$0")"
-command -v xcodegen >/dev/null || brew install xcodegen
-xcodegen generate
 rm -rf build
 if [ -n "${TEAM_ID:-}" ]; then
   xcodebuild -project App.xcodeproj -scheme App -configuration Release -sdk iphoneos \
